@@ -1,0 +1,14 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost/lista?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: ${dbPasswordDev:root}
+  flyway:
+    locations: classpath:db/migration
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: 'true'

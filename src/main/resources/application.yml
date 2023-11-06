@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+
+security:
+  oauth2:
+    client:
+      client-id: starter-package@2023
+      client-secret: 'starter-package@2023'
+      scope: password
+gestao:
+  jwt:
+    secret: gestaoGasto
