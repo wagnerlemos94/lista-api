@@ -7,9 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
@@ -37,6 +35,9 @@ public class Usuario implements UserDetails {
 	@Setter(value = AccessLevel.NONE)
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles = new HashSet<>();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Lista> lista = new ArrayList<Lista>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
