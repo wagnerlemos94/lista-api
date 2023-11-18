@@ -1,5 +1,6 @@
 create table lista (
     id bigint not null auto_increment,
+    nome varchar(255) not null,
     usuario_id bigint not null,
     ativo boolean,
     primary key (id),
