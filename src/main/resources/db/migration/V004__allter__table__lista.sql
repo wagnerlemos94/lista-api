@@ -1,0 +1,1 @@
+alter table lista add column descricao varchar(255);
