@@ -4,6 +4,7 @@ import br.com.digitadasistemas.lista.model.Itens;
 import br.com.digitadasistemas.lista.model.Lista;
 import br.com.digitadasistemas.lista.model.dto.usuario.UsuarioInputDTO;
 import br.com.digitadasistemas.lista.model.enums.TipoLista;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +20,10 @@ public class ListaInput {
 
     private Long id;
     private String nome;
+    private String descricao;
+    private Integer tipoLista;
     private List<Itens> itens = new ArrayList<Itens>();
     private UsuarioInputDTO usuario;
-    private Integer tipoLista;
-    private String descricao;
     private Date inicio;
     private Date fim;
 

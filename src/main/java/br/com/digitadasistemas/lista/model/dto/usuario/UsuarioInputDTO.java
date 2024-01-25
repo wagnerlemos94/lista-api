@@ -13,6 +13,10 @@ public class UsuarioInputDTO {
     private String nome;
     private String senha;
 
+    public UsuarioInputDTO(Long id){
+        this.id = id;
+    }
+
     public static Usuario to(UsuarioInputDTO usuarioInputDTO){
         Usuario usuario = new Usuario();
         usuario.setId(usuarioInputDTO.getId());

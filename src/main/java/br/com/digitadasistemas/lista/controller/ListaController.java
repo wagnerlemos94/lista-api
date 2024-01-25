@@ -1,5 +1,6 @@
 package br.com.digitadasistemas.lista.controller;
 
+import br.com.digitadasistemas.lista.model.dto.intem.ItemInput;
 import br.com.digitadasistemas.lista.model.dto.lista.ListaConsulta;
 import br.com.digitadasistemas.lista.model.dto.lista.ListaInput;
 import br.com.digitadasistemas.lista.service.ListaService;
@@ -41,6 +42,12 @@ public class ListaController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void ativo(@PathVariable Long id, @PathParam("ativo") boolean ativo){
         listaService.ativo(id,ativo);
+    }
+
+    @PutMapping("/assinar/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void assinar(@PathVariable Long id, @RequestBody ItemInput itemInput){
+        listaService.assinar(id,itemInput);
     }
 
 }

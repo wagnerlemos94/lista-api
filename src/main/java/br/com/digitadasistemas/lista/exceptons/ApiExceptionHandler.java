@@ -28,8 +28,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return handle(HttpStatus.NOT_FOUND, ex, request);
     }
 
-    @ExceptionHandler(ObjetoNaoEncontrado.class)
-    public ResponseEntity<Object> handleRecursoNaoEncontradoException(ObjetoNaoEncontrado ex, WebRequest request) {
+    @ExceptionHandler(RegraDeNegocioException.class)
+    public ResponseEntity<Object> handleRegraDeNegocioException(RegraDeNegocioException ex, WebRequest request) {
+        return handle(HttpStatus.NOT_FOUND, ex, request);
+    }
+
+    @ExceptionHandler(ObjetoNaoEncontradoException.class)
+    public ResponseEntity<Object> handleRecursoNaoEncontradoException(ObjetoNaoEncontradoException ex, WebRequest request) {
         return handle(HttpStatus.NOT_FOUND, ex, request);
     }
 
