@@ -4,7 +4,6 @@ import br.com.digitadasistemas.lista.model.Itens;
 import br.com.digitadasistemas.lista.model.Lista;
 import br.com.digitadasistemas.lista.model.dto.usuario.UsuarioInputDTO;
 import br.com.digitadasistemas.lista.model.enums.TipoLista;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
