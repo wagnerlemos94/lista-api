@@ -13,11 +13,12 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class ItemConsulta {
 
+    private Long id;
     private String produto;
     private String nome;
 
     public static ItemConsulta to(Itens item) {
-        return new ItemConsulta(item.getProduto(), item.getNome());
+        return new ItemConsulta(item.getId(),item.getProduto(), item.getNome());
     }
 
     public static List<ItemConsulta> to(List<Itens> itens){

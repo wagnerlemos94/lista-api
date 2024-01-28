@@ -2,11 +2,14 @@ package br.com.digitadasistemas.lista.service;
 
 import br.com.digitadasistemas.lista.exceptons.ObjetoNaoEncontradoException;
 import br.com.digitadasistemas.lista.model.Itens;
+import br.com.digitadasistemas.lista.model.Lista;
 import br.com.digitadasistemas.lista.model.dto.intem.ItemInput;
+import br.com.digitadasistemas.lista.model.dto.lista.ListaInput;
 import br.com.digitadasistemas.lista.repository.ItensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +18,8 @@ public class ItensService {
 
     @Autowired
     private ItensRepository itensRepository;
+    @Autowired
+    private ListaService listaService;
 
     public List<Itens> cadastrar(List<Itens> itens){
         return itensRepository.saveAll(itens);
@@ -22,6 +27,12 @@ public class ItensService {
 
     public Itens cadastrar(Itens itens){
         return itensRepository.save(itens);
+    }
+
+    public Itens cadastrar(Long idLista,Itens item){
+        item = itensRepository.save(item);
+        listaService.editar(idLista, item);
+        return item;
     }
 
     public Itens buscar(Long id){

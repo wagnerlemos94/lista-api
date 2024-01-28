@@ -4,6 +4,7 @@ import br.com.digitadasistemas.lista.config.UsuarioLogado;
 import br.com.digitadasistemas.lista.config.UsuarioLogadoService;
 import br.com.digitadasistemas.lista.exceptons.ObjetoNaoEncontradoException;
 import br.com.digitadasistemas.lista.exceptons.RegraDeNegocioException;
+import br.com.digitadasistemas.lista.model.Itens;
 import br.com.digitadasistemas.lista.model.Lista;
 import br.com.digitadasistemas.lista.model.dto.intem.ItemInput;
 import br.com.digitadasistemas.lista.model.dto.lista.ListaInput;
@@ -55,6 +56,12 @@ public class ListaService {
 
     public Lista editar(ListaInput listaInput, Long id){
         Lista lista = this.editar(this.buscar(id),listaInput);
+        return listaRepository.save(lista);
+    }
+
+    public Lista editar(Long id, Itens item){
+        Lista lista = this.buscar(id);
+        lista.getItens().add(item);
         return listaRepository.save(lista);
     }
 

@@ -22,6 +22,12 @@ public class ItemController {
         return ItemConsulta.to(this.itemService.cadastrar(ItemInput.to(itemInput)));
     }
 
+    @PostMapping("/{idLista}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ItemConsulta cadastrar(@PathVariable Long idLista, @RequestBody ItemInput itemInput){
+        return ItemConsulta.to(this.itemService.cadastrar(idLista,ItemInput.to(itemInput)));
+    }
+
     @GetMapping
     public List<ItemConsulta> buscar(){
         return ItemConsulta.to(this.itemService.buscar());
