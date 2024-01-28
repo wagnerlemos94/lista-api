@@ -26,9 +26,9 @@ public class ListaConsulta {
     private TipoLista tipoLista;
     private List<Itens> itens = new ArrayList<Itens>();
     private UsuarioConsultaDTO usuario;
-    @JsonFormat(pattern="dd/MM/yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date inicio;
-    @JsonFormat(pattern="dd/MM/yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date fim;
     public static ListaConsulta to(Lista lista){
         ListaConsulta listaConsulta = new ListaConsulta();

@@ -36,13 +36,13 @@ public class ListaService {
         var lista = listaRepository.findByIdAndAtivo(id, true).
                 orElseThrow(() -> new ObjetoNaoEncontradoException("Lista não encontrado "));
 
-        if(lista.getFim().before(dataAtual)){
+        if(lista.getFim() != null && lista.getFim().before(dataAtual)){
             lista.setAtivo(false);
             listaRepository.save(lista);
             throw new RegraDeNegocioException("Lista ja encerrada!");
         }
 
-        if(lista.getInicio().after(dataAtual)){
+        if(lista.getInicio() != null && lista.getInicio().after(dataAtual)){
             throw new RegraDeNegocioException("Lista ainda não foi iniciada!");
         }
 
@@ -63,6 +63,8 @@ public class ListaService {
         listaAtual.setItens(listaInput.getItens());
         listaAtual.setDescricao(listaInput.getDescricao());
         listaAtual.setTipoLista(TipoLista.find(listaInput.getTipoLista()));
+        listaAtual.setInicio(listaInput.getInicio());
+        listaAtual.setFim(listaInput.getFim());
         return listaAtual;
     }
 
