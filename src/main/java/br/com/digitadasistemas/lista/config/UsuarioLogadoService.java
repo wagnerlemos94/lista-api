@@ -24,6 +24,10 @@ public class UsuarioLogadoService {
     }
 
     public Usuario getUsuario(){
-        return usuarioService.buscar(getUsuarioLogado().getUsuario());
+        try{
+            return usuarioService.buscar(getUsuarioLogado().getUsuario());
+        }catch (Exception e){
+            return null;
+        }
     }
 }

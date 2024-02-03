@@ -34,17 +34,18 @@ public class ListaService {
 
         Date dataAtual =  new Date();
 
-        var lista = listaRepository.findByIdAndAtivo(id, true).
+        var lista = listaRepository.findById(id).
                 orElseThrow(() -> new ObjetoNaoEncontradoException("Lista não encontrado "));
+        if(usuarioLogadoService.getUsuario() == null){
+            if(!lista.getAtivo() || (lista.getFim() != null && lista.getFim().before(dataAtual))){
+                lista.setAtivo(false);
+                listaRepository.save(lista);
+                throw new RegraDeNegocioException("Lista ja encerrada!");
+            }
 
-        if(lista.getFim() != null && lista.getFim().before(dataAtual)){
-            lista.setAtivo(false);
-            listaRepository.save(lista);
-            throw new RegraDeNegocioException("Lista ja encerrada!");
-        }
-
-        if(lista.getInicio() != null && lista.getInicio().after(dataAtual)){
-            throw new RegraDeNegocioException("Lista ainda não foi iniciada!");
+            if(lista.getInicio() != null && lista.getInicio().after(dataAtual)){
+                throw new RegraDeNegocioException("Lista ainda não foi iniciada!");
+            }
         }
 
         return lista;
