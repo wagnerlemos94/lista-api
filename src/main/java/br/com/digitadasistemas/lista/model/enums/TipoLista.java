@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TipoLista {
 
-    PRESENCA(0,"PRESENÇA", "lISTA DE PRESENÇA"),
+    NORMAL(0,"NORMAL", "lISTA DE NORMAL"),
     ITENS(1,"ITENS","LISTA DE ITENS");
 
     private Integer id;

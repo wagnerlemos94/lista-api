@@ -73,6 +73,7 @@ public class ListaService {
         listaAtual.setTipoLista(TipoLista.find(listaInput.getTipoLista()));
         listaAtual.setInicio(listaInput.getInicio());
         listaAtual.setFim(listaInput.getFim());
+        listaAtual.setAberta(listaInput.isAberta());
         return listaAtual;
     }
 

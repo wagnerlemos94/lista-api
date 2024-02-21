@@ -25,7 +25,7 @@ public class Lista {
     private String nome;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Itens> itens = new ArrayList<Itens>();
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
     private Boolean ativo = true;
     @Enumerated(EnumType.ORDINAL)
@@ -33,5 +33,5 @@ public class Lista {
     private String descricao;
     private Date inicio = new Date();
     private Date fim;
-
+    private boolean aberta = false;
 }

@@ -1,0 +1,1 @@
+alter table lista add column aberta boolean default(false);
