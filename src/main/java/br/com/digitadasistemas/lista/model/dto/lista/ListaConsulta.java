@@ -42,7 +42,7 @@ public class ListaConsulta {
         listaConsulta.setDescricao(lista.getDescricao());
         listaConsulta.setInicio(lista.getInicio());
         listaConsulta.setFim(lista.getFim());
-        listaConsulta.setAtivo(lista.isAberta());
+        listaConsulta.setAberta(lista.isAberta());
         return listaConsulta;
     }
 
