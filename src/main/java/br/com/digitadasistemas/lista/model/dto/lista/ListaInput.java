@@ -25,6 +25,7 @@ public class ListaInput {
     private UsuarioInputDTO usuario;
     private Date inicio;
     private Date fim;
+    private boolean aberta;
 
     public static Lista to(ListaInput listaInput){
         Lista lista = new Lista();
@@ -35,6 +36,7 @@ public class ListaInput {
         lista.setDescricao(listaInput.getDescricao());
         lista.setInicio(listaInput.getInicio());
         lista.setFim(listaInput.getFim());
+        lista.setAberta(listaInput.isAberta());
         return lista;
     }
 

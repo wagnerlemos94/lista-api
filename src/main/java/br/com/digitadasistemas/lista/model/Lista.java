@@ -33,5 +33,5 @@ public class Lista {
     private String descricao;
     private Date inicio = new Date();
     private Date fim;
-
+    private boolean aberta = false;
 }

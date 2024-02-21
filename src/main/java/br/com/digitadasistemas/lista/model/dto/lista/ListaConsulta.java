@@ -30,6 +30,7 @@ public class ListaConsulta {
     private Date inicio;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date fim;
+    private boolean aberta;
     public static ListaConsulta to(Lista lista){
         ListaConsulta listaConsulta = new ListaConsulta();
         listaConsulta.setId(lista.getId());
@@ -41,6 +42,7 @@ public class ListaConsulta {
         listaConsulta.setDescricao(lista.getDescricao());
         listaConsulta.setInicio(lista.getInicio());
         listaConsulta.setFim(lista.getFim());
+        listaConsulta.setAtivo(lista.isAberta());
         return listaConsulta;
     }
 
